@@ -21,7 +21,7 @@ Sqlar is a Telegram bot designed for simple and fast SQL command execution direc
 Install Sqlar with a single command:
 
 ```bash
-sudo bash -c "$(curl -sL https://github.com/erfjab/sqlar/raw/main/install.sh)"
+sudo bash -c "$(curl -sL https://github.com/smaghili/sqlar/raw/main/install.sh)"
 ```
 
 ### Prerequisites
