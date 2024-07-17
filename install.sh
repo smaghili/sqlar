@@ -6,7 +6,7 @@ dir_address="/root/sqlar"
 py_address="/root/sqlar/sqlar.py"
 env_address="/root/sqlar/.env"
 venv_name="/root/sqlar/sqlar_venv"
-marzban_env_file="/opt/marzgosha/.env"
+marzban_env_file="/opt/marzban/.env"
 version="1.0.1"
 
 # Define colors and Helper functions for colored messages
