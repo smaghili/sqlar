@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Global variables
-git_address="https://github.com/erfjab/sqlar.git"
+git_address="https://github.com/smaghili/sqlar.git"
 dir_address="/root/sqlar"
 py_address="/root/sqlar/sqlar.py"
 env_address="/root/sqlar/.env"
