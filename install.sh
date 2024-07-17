@@ -83,7 +83,7 @@ install_bot() {
 }
 
 get_db_address() {
-    if [ ! -f "$marzban_env_file" ]; then
+    if ( [ ! -f "$marzban_env_file" ] ); then
         error "Marzban .env file not found at $marzban_env_file"
         exit 1
     fi
@@ -143,9 +143,9 @@ get_language() {
 complete_install() {
     log "Starting installation process..."
 
-    # First, uninstall any existing installation
-    log "Checking for existing installation..."
-    uninstall_bot
+    # حذف بخش صدا زدن `uninstall_bot`:
+    # log "Checking for existing installation..."
+    # uninstall_bot
 
     # Download the project from GitHub
     log "Downloading the project from GitHub..."
@@ -226,34 +226,34 @@ EOL
 uninstall_bot() {
     log "Starting uninstallation of the bot..."
 
-    # Stop the bot process
-    log "Checking if the bot process is running..."
-    bot_pids=$(pgrep -f "$py_address")
-    if [ -n "$bot_pids" ]; then
-        log "Bot process(es) found (PIDs: $bot_pids). Attempting to stop them..."
-        
-        for pid in $bot_pids; do
-            # Attempt to stop the process
-            kill $pid
-            log "Waiting for process $pid to stop..."
-            sleep 2
-            
-            # Check if the process was stopped
-            if kill -0 $pid 2>/dev/null; then
-                log "Process $pid still running. Attempting force stop..."
-                kill -9 $pid
-                sleep 1
-            fi
-            
-            if kill -0 $pid 2>/dev/null; then
-                error "Failed to stop bot process $pid. It may require manual intervention."
-            else
-                success "Bot process $pid stopped successfully."
-            fi
-        done
-    else
-        log "No bot processes found running."
-    fi
+    # حذف بخش چک و توقف فرآیندهای قبلی
+    # log "Checking if the bot process is running..."
+    # bot_pids=$(pgrep -f "$py_address")
+    # if [ -n "$bot_pids" ]; then
+    #     log "Bot process(es) found (PIDs: $bot_pids). Attempting to stop them..."
+    #     
+    #     for pid in $bot_pids; do
+    #         # Attempt to stop the process
+    #         kill $pid
+    #         log "Waiting for process $pid to stop..."
+    #         sleep 2
+    #         
+    #         # Check if the process was stopped
+    #         if kill -0 $pid 2>/dev/null; then
+    #             log "Process $pid still running. Attempting force stop..."
+    #             kill -9 $pid
+    #             sleep 1
+    #         fi
+    #         
+    #         if kill -0 $pid 2>/dev/null; then
+    #             error "Failed to stop bot process $pid. It may require manual intervention."
+    #         else
+    #             success "Bot process $pid stopped successfully."
+    #         fi
+    #     done
+    # else
+    #     log "No bot processes found running."
+    # fi
 
     log "Continuing with uninstallation..."
 
@@ -308,4 +308,3 @@ run() {
 }
 
 run
-
